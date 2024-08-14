@@ -60,8 +60,10 @@ class _HomeScreenState extends State<HomeScreen> {
     // int i = 0;
 
     return Scaffold(
+        backgroundColor: Colors.white,
       appBar: AppBar(
            title: Text(apiList[selectedPageIndex]),
+           backgroundColor:  const Color(0xffffcd02),
           ),
       drawer: Drawer(
         backgroundColor: Colors.black,
@@ -111,17 +113,23 @@ class _HomeScreenState extends State<HomeScreen> {
               itemCount: getData.length,
               itemBuilder: (context, index) {
                 return Card(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(getData[index].id.toString()),
-                      Text(
-                        getData[index].title.toString(),
-                        style: const TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
-                      Text(getData[index].body.toString()),
-                    ],
+                  color: Colors.black,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(getData[index].id.toString(),style: const TextStyle(color: Colors.white),),
+                        Text(
+                          getData[index].title.toString(),
+                          style: const TextStyle(
+                              fontSize: 24, fontWeight: FontWeight.bold,color: Colors.white),
+                        ),
+                    
+                        const Divider(),
+                        Text(getData[index].body.toString(),style: const TextStyle(color: Colors.white,fontSize: 16),),
+                      ],
+                    ),
                   ),
                 );
               },

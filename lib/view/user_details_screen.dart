@@ -32,11 +32,16 @@ class UserDetailsScreen extends StatelessWidget {
     return Scaffold(
       body: FutureBuilder(future: getUserDetails(), builder: (context, snapshot) {
         return ListView.builder(itemCount: userDetailsList.length,itemBuilder: (context,index) {
-          return Column(
-            children: [
-              CustomRow(name: 'Name', title: snapshot.data![index].name.toString()),
-              CustomRow(name: 'Address',title: snapshot.data![index].address.toString()),
-            ],
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                CustomRow(name: 'Name:', title: snapshot.data![index].name.toString()),
+                CustomRow(name: 'Username:',title: snapshot.data![index].address.toString()),
+                CustomRow(name: 'Email:',title: snapshot.data![index].email.toString(),),
+                CustomRow(name: 'Location:',title: '${snapshot.data![index].address!.city}, ${snapshot.data![index].address!.street}'),
+              ],
+            ),
           );
         });
       },)
@@ -53,17 +58,15 @@ class CustomRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20),
-      child: Card(
-        color: Colors.black,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(name),
-            Text(title),
-          ],
-        ),
+    return Container(
+      color: Colors.grey,
+      padding: const EdgeInsets.all(10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(name,style:const TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+          Text(title,style:const TextStyle(fontSize: 16),),
+        ],
       ),
     );
   }
