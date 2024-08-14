@@ -1,3 +1,4 @@
+import 'package:api_learn/splash_screen.dart';
 import 'package:api_learn/view/home_screen.dart';
 import 'package:api_learn/view/photo_screen.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
+      home: SplashScreen(),
       theme: ThemeData(
           drawerTheme: const DrawerThemeData(
           ),
