@@ -1,7 +1,8 @@
 import 'dart:convert';
 
 import 'package:api_learn/model/user_model.dart';
-import 'package:api_learn/photo_screen.dart';
+import 'package:api_learn/view/photo_screen.dart';
+import 'package:api_learn/view/user_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -33,14 +34,25 @@ class _HomeScreenState extends State<HomeScreen> {
 
     List<String> apiList = [
       'User API',
-      'Photo API'
+      'Photo API',
+      'User Details',
     ];
     List<IconData> iconList = [
         Icons.person,
         Icons.photo_outlined,
+        Icons.location_history_outlined,
     ];
 
     int selectedPageIndex = 0;
+
+    Widget changeScreen() {
+      if(selectedPageIndex == 1) {
+        return const PhotoScreen();
+      }
+      else {
+        return const UserDetailsScreen();
+      } 
+    }
 
 
   @override
@@ -49,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-          //  title: const Text('App'),
+           title: Text(apiList[selectedPageIndex]),
           ),
       drawer: Drawer(
         backgroundColor: Colors.black,
@@ -66,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
 
           Expanded(
-            child: ListView.builder(itemCount: 2,itemBuilder: (context, index) {
+            child: ListView.builder(itemCount: apiList.length,itemBuilder: (context, index) {
               return ListTile(
                 title: Text(apiList[index]),
                 leading:  Icon(iconList[index]),
@@ -116,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           }
         },
-      ) : const PhotoScreen()
+      ) : changeScreen()
     );
   }
 }

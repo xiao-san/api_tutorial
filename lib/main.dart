@@ -1,5 +1,5 @@
-import 'package:api_learn/home_screen.dart';
-import 'package:api_learn/photo_screen.dart';
+import 'package:api_learn/view/home_screen.dart';
+import 'package:api_learn/view/photo_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
             bodyMedium: TextStyle(color: Colors.black, fontSize: 24),
           ),
 
-        // scaffoldBackgroundColor: Colors.black,
+        scaffoldBackgroundColor: Colors.black,
       ),
 
       

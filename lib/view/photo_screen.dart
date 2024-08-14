@@ -34,7 +34,7 @@ class PhotoScreen extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      // backgroundColor: Colors.black,
       body: FutureBuilder(
         future: getPhotos(),
         builder: (context, snapshot) {
