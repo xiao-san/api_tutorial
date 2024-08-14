@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:api_learn/model/user_model.dart';
 import 'package:api_learn/view/photo_screen.dart';
 import 'package:api_learn/view/user_details_screen.dart';
+import 'package:api_learn/view/user_details_screen2.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -36,11 +37,13 @@ class _HomeScreenState extends State<HomeScreen> {
       'User API',
       'Photo API',
       'User Details',
+      'User Details2',
     ];
     List<IconData> iconList = [
         Icons.person,
         Icons.photo_outlined,
         Icons.location_history_outlined,
+        Icons.share_location_sharp,
     ];
 
     int selectedPageIndex = 0;
@@ -49,9 +52,12 @@ class _HomeScreenState extends State<HomeScreen> {
       if(selectedPageIndex == 1) {
         return const PhotoScreen();
       }
-      else {
+      else if(selectedPageIndex == 2){
         return const UserDetailsScreen();
       } 
+      else {
+        return const UserDetailsScreen2();
+      }
     }
 
 
@@ -87,6 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 onTap: () {
                    setState(() {
                    selectedPageIndex = index;
+                   Navigator.pop(context);
                    });
                 },
               );
