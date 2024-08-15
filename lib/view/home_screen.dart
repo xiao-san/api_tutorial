@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:api_learn/model/user_model.dart';
 import 'package:api_learn/view/photo_screen.dart';
+import 'package:api_learn/view/product_screen.dart';
 import 'package:api_learn/view/user_details_screen.dart';
 import 'package:api_learn/view/user_details_screen2.dart';
 import 'package:flutter/material.dart';
@@ -38,12 +39,14 @@ class _HomeScreenState extends State<HomeScreen> {
       'Photo API',
       'User Details',
       'User Details2',
+      'Products API',
     ];
     List<IconData> iconList = [
         Icons.person,
         Icons.photo_outlined,
         Icons.location_history_outlined,
         Icons.share_location_sharp,
+        Icons.production_quantity_limits,
     ];
 
     int selectedPageIndex = 0;
@@ -55,8 +58,11 @@ class _HomeScreenState extends State<HomeScreen> {
       else if(selectedPageIndex == 2){
         return const UserDetailsScreen();
       } 
-      else {
+      else if(selectedPageIndex == 3){
         return const UserDetailsScreen2();
+      } 
+      else {
+        return const ProductScreen();
       }
     }
 
